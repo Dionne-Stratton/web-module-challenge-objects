@@ -122,9 +122,17 @@ function getLastReview(array) {
     {name:"Lauren", rating: 4, feedback: "Absolutely love that they have karaoke Fridays! Food and drink selection is okay."}]
 */
 
- function getReviewByRating(/* code here */) {
-    /* code here */
+function getReviewByRating(arr, num) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i]["rating"] === num || arr[i]["rating"] > num && arr[i]["rating"] < num + 1) {
+      newArr.push(arr[i]);
+    }
   }
+  return newArr;
+}
+console.log(getReviewByRating(reviews, 4));
+
 
 
 /** STRETCH 2: Write a function called 'getLongestReview' that returns an array containing all reviews longer than 15 words.
@@ -164,6 +172,6 @@ The returned object should have the following characteristics:
 
 
 function carMaker(odometer) {
-    return 
+    return
 
 }
