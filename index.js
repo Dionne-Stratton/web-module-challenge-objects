@@ -4,14 +4,11 @@ const latte = {name: "Cafe Latte", price: 4, category: "Drinks"};
 const burger = {name: "Burger", price: 18, category: "Lunch"};
 const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakfast"};
 
-console.log(latte)
 /* Task 1a: write a function to return more menu items with the same format as the items above. */
 
-function createMenuItem(name, cost, category){
-    let newItem = {name, cost, category};
-    return newItem
+function createMenuItem(name, price, category){
+    return {name, price, category};
 }
-console.log(createMenuItem("name", 0, "category"))
 
 /* Task 1b: use your function to create 3 more menu items. You may add any items to the menu that you'd like */
 
@@ -29,7 +26,15 @@ and should return a number.
 
 For example, burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2*/
 
-
+burger.discount = function(status){
+  if (status === "teacher" || status ==="student"){
+    return this.price*0.75;
+  } else {
+    return this.price*0.9
+  }
+}
+console.log(burger.discount("student"))
+console.log(burger.discount("public"))
 
 ///////////////Reviews (MVP)///////////////////
 
@@ -60,8 +65,8 @@ console.log(addReviews(reviews, "Dionne", 1, "bad"))
 /* Task 5: Add the following feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"  */
 
 
-function changeReview(array, index, region){
-  array[index].region = region;
+function changeReview(array, index, feedback){
+  array[index].feedback = feedback;
   return array;
 }
 
@@ -79,12 +84,30 @@ and should return a string in the format `{name} gave the restaurant a {rating},
  *
  * For example, if getReviewByIndex is invoked with reviews and the number 0
  * it will return `Daniela gave the restaurant a 5 star review and their feedback was: Beautiful atmosphere and wonderful vegan options!`
-*/
-function getReviewByIndex(reviews, index) {
-    /* code here */
-  }
+// */
+// function getReviewByIndex(array, index) {
+//   // array[index];
+//     return `${this.name} gave the restaurant a ${this.rating}, and their feedback was: ${this.feedback}`
+//   }
+//
+// console.log(getReviewByIndex(reviews, 0))
+// console.log(reviews.get());
 
 
+// const dogsSuck = {
+//   // key / value pairs
+//   name: 'Ada',
+//   breed: 'Bali Dog',
+//   age: 3,
+//   colour: 'brindle',
+//   favFood: 'Salmon',
+//   // methods - functions that belong to an object
+//   eat: function(){
+//     return `${this.name} is a ${this.breed} and she likes to eat ${this.favFood}`;
+//   }
+// };
+//
+// console.log(dogsSuck.eat());
 /* Task 7: Write a function to get information about the most recent review called `getLastReview`
 
 getLastReview should accept:
